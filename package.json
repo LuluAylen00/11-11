@@ -1,0 +1,12 @@
+{
+  "name": "11-11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "luluaylen00 <luluaylen00@gmail.com> (https://github.com/LuluAylen00)",
+  "license": "ISC"
+}
