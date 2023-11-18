@@ -11,5 +11,8 @@ app.listen(port, () => {
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+const static = express.static("public");
+app.use(static);
+
 const mainRouter = require('./routes/main-router');
 app.use(mainRouter);
