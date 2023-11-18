@@ -5,10 +5,10 @@ const controller = {
         res.send("Holi");
     },
     // Create
-    productCreate: (req, res) => {
+    productCreate: async (req, res) => {
         // Todo lo que venga en un formulario vendrá en un req.body
         if (req.body.name && req.body.price) {            
-            Products.createProduct(req.body);
+            await Products.createProduct(req.body);
             res.send({
                 code: 200,
                 msg: "Creacion exitosa",
@@ -18,19 +18,19 @@ const controller = {
             res.send("Error");
         }
     },
-    productsList: (req, res) => { // Read -> List
-        let productsList = Products.findAll();
+    productsList: async (req, res) => { // Read -> List
+        let productsList = await Products.findAll();
         res.send(productsList);
     },
-    productDetail: (req, res) => { // Read -> Detail
+    productDetail: async (req, res) => { // Read -> Detail
         const id = req.params.id;
-        let product = Products.findById(id);
+        let product = await Products.findById(id);
         res.send(product);
     },
     // Update
-    productUpdate: (req, res) => {
+    productUpdate: async (req, res) => {
         const id = req.params.id;
-        let resultado = Products.updateProduct(id, req.body);
+        let resultado = await Products.updateProduct(id, req.body);
         if (resultado > 0) {
             res.send("Edición exitosa");
         } else {
@@ -38,9 +38,9 @@ const controller = {
         };
     },
     // Delete
-    productDelete: (req, res) => {
+    productDelete: async (req, res) => {
         const id = req.params.id;
-        let resultado = Products.deleteProduct(id);
+        let resultado = await Products.deleteProduct(id);
         if (resultado > 0) {
             res.send("Borrado exitoso");
         } else {
