@@ -1,8 +1,9 @@
 const Products = require('../services/product');
+const path = require('path')
 
 const controller = {
     home: (req, res) => {
-        res.send("Holi");
+        res.sendFile(path.join(__dirname, '../views/home.html'));
     },
     // Create
     productCreate: async (req, res) => {
